@@ -1,6 +1,6 @@
 # ele-backend-common-template
 
-> A new focus message platform
+> A backend template based on Vue + ElementUI
 
 ## Build Setup
 
@@ -29,17 +29,28 @@ npm test
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+# 模板目的
+> 快速初始化一个分层明确的Vue后台项目，省却每次新开项目都要配置一遍环境的麻烦之处
+
+# 初始化后你可以拥有什么
+* 开箱即用的开发体验
+* 一套完整清晰的项目结构划分
+* 简单的后台页面框架（导航，后台头部）
+* 简单的项目开发样例
+
 # 项目技术结构
-> vue + vuex + vue-router + axios + element-ui
+> vue + vuex + vue-router + axios + element-ui + scss
 
 # src项目结构
 *   api     项目请求接口
 *   assets  资源目录
     +   fonts   字体文件
     +   images  图片文件
-    +   medias  视频文件
-*   components  公共组件库及业务组件库
-*   router  前端路由
-*   stores  Vuex状态仓库
-*   services  前端服务层
+    +   medias  视频文件
+*   components  公共组件库以及再包装的组件库
+*   mixins  抽离的共用Vue mixins
 *   pages   前端页面
+*   router  前端路由
+*   services  前端服务层
+*   stores  Vuex状态仓库
+*   utils   共用的工具库类
