@@ -68,8 +68,6 @@
 <script>
 import CommonMixins from 'mixins/Common.mixins'
 
-// import AuthService from 'services/AuthService'
-
 export default {
   data () {
     return {
@@ -79,7 +77,9 @@ export default {
       tableData: []
     }
   },
- 
+  created () {
+
+  },
   methods: {
     getSearchData (page) {
       // let data = Object.assign({}, this.formData, {

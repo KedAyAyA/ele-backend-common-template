@@ -1,7 +1,15 @@
 <template>
   <section class="header-item">
     <section class="header-item__city">
-      <span>icon</span>
+      <span>城市：</span>
+      <el-select v-model="value" placeholder="请选择" size="small" style="width: 120px" filterable>
+        <el-option
+          v-for="item in citys"
+          :key="item.id"
+          :label="item.label"
+          :value="item.id">
+        </el-option>
+      </el-select>
     </section>
     <section class="header-item__title">
       <span>后台模板样例</span>
@@ -14,7 +22,7 @@
 </template>
 
 <script>
-
+import CommonMixins from 'mixins/Common.mixins'
 export default {
   data () {
     return {
@@ -23,14 +31,15 @@ export default {
     }
   },
   created () {
-
+    this.$store.dispatch('getCitys')
   },
   computed: {
 
   },
   methods: {
 
-  }
+  },
+  mixins: [CommonMixins.tableListMixin(), CommonMixins.defaultComputedMixin()]
 }
 </script>
 

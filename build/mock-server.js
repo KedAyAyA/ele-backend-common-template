@@ -3,10 +3,10 @@ let app = express()
 
 let Mock = require('mockjs')
 let defalut = {
-  code: 200,
-  msg: '成功'
+  errorCode: 0,
+  message: '成功'
 }
-
+// 模拟城市
 app.get('/common/getCity', (req, res) => {
   let data = Object.assign({}, defalut, {
     data: [{

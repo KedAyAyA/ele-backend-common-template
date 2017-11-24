@@ -54,7 +54,7 @@ export default class CommonMixins {
   static defaultComputedMixin = () => {
     return {
       computed: {
-        ...mapState(['loading'])
+        ...mapState(['loading', 'citys'])
       }
     }
   }
