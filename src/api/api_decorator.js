@@ -8,13 +8,22 @@ import axios from 'axios'
  *    data: data, data为正常的json对象
  *    config: config config可以到axios官网查看
  * }
+ * 使用前需要根据自己的后端更改对返回数据的解构
  */
 
-let get = (url, params) => {
-  return axios.get(url, {
-    params: params.data || {}
-  }, params.config || {}).then(res => {
-    // let { config, data, headers, request, status, statusText } = res,
+let get = (url, { data = {}, config = {} }) => {
+  return axios(
+    Object.assign(
+      {
+        method: 'get',
+        url: url
+      }, 
+      {
+        params: data
+      }, 
+      config
+    )
+  ).then(res => {
     let { data } = res
     let { data: jsonData, errorCode, message } = data
 
@@ -25,9 +34,19 @@ let get = (url, params) => {
   })
 }
 
-let post = (url, params) => {
-  return axios.post(url, params.data || {}, params.config || {}).then(res => {
-    // let { config, data, headers, request, status, statusText } = res,
+let post = (url, { data = {}, config = {} }) => {
+  return axios(
+    Object.assign(
+      {
+        method: 'post',
+        url: url
+      }, 
+      {
+        data: data
+      },
+      config
+    )
+  ).then(res => {
     let { data } = res
     let { data: jsonData, errorCode, message } = data
 

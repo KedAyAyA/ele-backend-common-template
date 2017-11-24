@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
+let Main = resolve => require(['@/Main.vue'], resolve)
 
 Vue.use(Router)
 
@@ -8,8 +9,26 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: HelloWorld
+      name: '首页',
+      component: Main,
+      iconCls: 'fa fa-home',
+      hidden: false
+    },
+    {
+      path: '/message',
+      name: '权限管理',
+      iconCls: 'fa fa-envelope-o',
+      component: Main,
+      children: [
+        {
+          path: 'list',
+          name: '权限列表'
+        },
+        {
+          path: 'list',
+          name: '添加权限'
+        }
+      ]
     }
   ]
 })
