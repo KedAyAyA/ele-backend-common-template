@@ -1,9 +1,10 @@
 <template>
   <section class="header-item">
     <section class="header-item__city">
+      <span>icon</span>
     </section>
     <section class="header-item__title">
-      <span>搜狐焦点短信平台</span>
+      <span>后台模板样例</span>
     </section>
     <section class="header-item__profile">
       <span>木子木子</span>

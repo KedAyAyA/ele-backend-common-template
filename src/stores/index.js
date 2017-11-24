@@ -14,7 +14,8 @@ const mutations = {
 
 export default new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    loading: false
   },
   mutations,
   actions,

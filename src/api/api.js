@@ -1,5 +1,5 @@
 import http from '@/api/api_decorator'
 
-export function test (params) {
+export function getCitys (params) {
   return http.get('test', params)
 }

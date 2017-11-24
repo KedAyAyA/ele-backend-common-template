@@ -37,6 +37,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 * 一套完整清晰的项目结构划分
 * 简单的后台页面框架（导航，后台头部）
 * 简单的项目开发样例
+* 一些常规的开发模板（例如搜索-列表页）
 
 # 项目技术结构
 > vue + vuex + vue-router + axios + element-ui + scss

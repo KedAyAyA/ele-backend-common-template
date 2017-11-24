@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 let Main = resolve => require(['@/Main.vue'], resolve)
+let AuthList = resolve => require(['@/pages/Auth/List.vue'], resolve)
 
 Vue.use(Router)
 
@@ -22,10 +23,11 @@ export default new Router({
       children: [
         {
           path: 'list',
-          name: '权限列表'
+          name: '权限列表',
+          component: AuthList
         },
         {
-          path: 'list',
+          path: 'add',
           name: '添加权限'
         }
       ]
