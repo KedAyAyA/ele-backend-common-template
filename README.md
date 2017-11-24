@@ -52,6 +52,16 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 *   mixins  抽离的共用Vue mixins
 *   pages   前端页面
 *   router  前端路由
-*   services  前端服务层
+*   services  前端服务层 用于统一可复用请求的包装与默认错误处理和loading处理
 *   stores  Vuex状态仓库
 *   utils   共用的工具库类
+
+# 开发指南
+> 开发的一些约定
+
+* 页面都应该写在page里，不同的模块用不同的文件夹区分，若page内有细分的非复用组件应也放在相同的文件夹内，用文件夹来区分
+* 所有数据分为两种 1-多个组件共同使用 2-单组件内部需要
+    +   对于第一种 我们约定采用vuex来处理状态，若需要异步获取，则action里调用service层接口，若多个服用可放到某个mixins来减少代码的重复率
+    +   对于第二种直接再组件内部调用service层借口来实现，通过回调的fn定义成功获取后的操作
+* services/ServiceDecorator.js主要是用来统一错误处理，避免每一个获取数据操作都要进行一遍错误的捕获以及loading的处理
+* 对搜索－列表类的页面进行了抽象，每个页面只需要重写一个方法即可，详细内容见文件中的例子
