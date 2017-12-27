@@ -1,6 +1,6 @@
 import api from 'api'
 
-import { NoLoadingMessageErrorDecorator } from './ServiceDecorator'
+import { NoLoadingMessageErrorDecorator } from 'decorator/ServiceDecorator'
 
 export default class CommonService {
   static GetCommonCitys = ({ params = {}, fn, errfn }) => {

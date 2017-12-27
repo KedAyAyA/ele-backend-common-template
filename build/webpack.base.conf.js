@@ -28,7 +28,8 @@ module.exports = {
       'scss': resolve('src/styles'),
       'services': resolve('src/services'),
       'utils': resolve('src/utils'),
-      'mixins': resolve('src/mixins')
+      'mixins': resolve('src/mixins'),
+      'decorator': resolve('src/decorator')
     }
   },
   module: {
