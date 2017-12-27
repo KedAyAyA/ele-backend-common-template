@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss" scoped>
   .header-item {
-    background-color: #555555;
+    background-color: #555;
     display: flex;
     
     &__city {
@@ -60,8 +60,10 @@ export default {
       font-size: 22px;
       font-weight: bold;
     }
+
     &__profile {
       width: 200px;
+      
       span + span {
         margin-left: 10px;
       }

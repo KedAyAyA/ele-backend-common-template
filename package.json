@@ -12,7 +12,9 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "mock": "node build/mock-server.js"
+    "mock": "node build/mock-server.js",
+    "eslint": "./node_modules/.bin/eslint .eslintrc.js src/**/*.js src/**/*.vue",
+    "stylelint": "./node_modules/.bin/stylelint src/*.vue src/**/*.vue src/**/*.scss"
   },
   "dependencies": {
     "axios": "^0.17.0",
@@ -83,6 +85,9 @@
     "sinon": "^4.0.0",
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.19.0",
+    "stylelint": "^8.3.1",
+    "stylelint-config-standard": "^18.0.0",
+    "stylelint-processor-html": "^1.0.0",
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",

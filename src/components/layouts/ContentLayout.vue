@@ -24,7 +24,11 @@ a {
   color: #20a0ff;
   cursor: pointer;
 }
-a:hover, a:visited, a:link, a:active {
+
+a:hover,
+a:visited,
+a:link,
+a:active {
   color: #20a0ff;
 }
 </style>
@@ -32,18 +36,19 @@ a:hover, a:visited, a:link, a:active {
 <style lang="scss" scope>
   .common-layout__content {
     &_search_bar {
-      padding: 18px 10px 0px 10px;
-      background-color: #555555;
+      padding: 18px 10px 0;
+      background-color: #555;
       border-left: 4px solid rgb(255, 208, 75);
       border-radius: 4px;
       color: #fff;
+
       .el-form-item__label {
         color: #fff;
       }
+
       .el-checkbox__label {
         color: #fff;
       }
-
     }
 
     &_table_list {

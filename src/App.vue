@@ -11,9 +11,10 @@ export default {
 </script>
 
 <style>
-html, body {
-	margin: 0px;
-	padding: 0px;
+html,
+body {
+	margin: 0;
+	padding: 0;
 	font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
   font-size: 14px;
   height: 100%;
@@ -21,14 +22,18 @@ html, body {
 	-webkit-font-smoothing: antialiased;
 }
 
-section,div,aside,header {
+section,
+div,
+aside,
+header {
   box-sizing: border-box;
 }
 
-.el-menu-item [class^=fa], .el-submenu [class^=fa] {
-    color: #fff;
-    vertical-align: baseline;
-    margin-right: 10px;
+.el-menu-item [class^=fa],
+.el-submenu [class^=fa] {
+  color: #fff;
+  vertical-align: baseline;
+  margin-right: 10px;
 }
 
 .el-submenu__title i {

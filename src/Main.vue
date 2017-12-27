@@ -47,8 +47,10 @@ export default {
 
 <style lang="scss" scoped>
   $app-header-height: 48px;
+  
   .app-container {
     height: 100%;
+
     &__header {
       height: $app-header-height;
       line-height: $app-header-height;
@@ -56,6 +58,7 @@ export default {
       border-bottom: 1px solid #fff;
       text-align: center;
     }
+
     &__body {
       position: absolute;
       top: $app-header-height;
@@ -76,11 +79,13 @@ export default {
         padding: 20px;
         background-color: #f9fafc;
         border-top: 1px solid #fff;
-        // 创建BFC
+
+        /* 创建BFC */
         overflow-y: scroll;
       }
+
       &-title {
-          overflow: hidden;
+        overflow: hidden;
       }
 
       &-content {

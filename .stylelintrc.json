@@ -1,0 +1,8 @@
+{
+  "extends": "stylelint-config-standard",
+  "processors": ["stylelint-processor-html"],
+  "rules": {
+      "no-eol-whitespace": null,
+      "no-empty-source": null        
+  }
+}

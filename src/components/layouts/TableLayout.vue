@@ -14,9 +14,6 @@ export default {
 
 <style lang="scss" scoped>
   .common-table {
-    &__layout {
-
-    }
     &__pagination {
       float: right;
       margin-top: 10px;
