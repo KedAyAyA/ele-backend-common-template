@@ -25,7 +25,7 @@
       </section>
       <section class="app-container__body-main" v-show="$route.path === '/'">
         <section class="app-container__body-content" style="margin-top: 0">
-          <section class="app-container__body-welcome">欢迎使用后台模板</section>
+          <home-page></home-page>
         </section>
       </section>
     </section>
@@ -36,11 +36,13 @@
 <script>
 import MainHeader from '@/Header.vue'
 import NavSide from '@/NavSide.vue'
+import HomePage from '@/pages/HomePage'
 
 export default {
   components: {
     MainHeader,
-    NavSide
+    NavSide,
+    HomePage
   }
 }
 </script>
