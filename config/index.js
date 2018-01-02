@@ -32,11 +32,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/mock': {
-        target: 'http://localhost:3007',
+      '/api': {
+        target: 'http://kefu.focus-dev.cn',
         changeOrigin: true,
         pathRewrite: {
-          '^/mock': '/'
+          '^/api': '/'
         }
       }
     },

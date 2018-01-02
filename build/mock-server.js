@@ -1,5 +1,5 @@
 let express = require('express')
-let app = express()
+let router = express.Router()
 
 let Mock = require('mockjs')
 let defalut = {
@@ -7,7 +7,7 @@ let defalut = {
   message: '成功'
 }
 // 模拟城市
-app.get('/common/getCity', (req, res) => {
+router.get('/common/getCity', (req, res) => {
   let data = Object.assign({}, defalut, {
     data: [{
       id: 1,
@@ -30,11 +30,7 @@ app.get('/common/getCity', (req, res) => {
       label: '武汉'
     }]
   })
-  res.send(data)
+  res.json(data)
 })
 
-var server = app.listen(3007, () => {
-  let host = server.address().address
-  let port = server.address().port
-  console.log("Mock server start at http://%s:%s", host, port)
-})
+module.exports = router;

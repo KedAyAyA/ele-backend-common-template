@@ -49,6 +49,9 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 // compilation error display
 app.use(hotMiddleware)
 
+let MockServer = require('./mock-server')
+app.use('/api', MockServer)
+
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
   let options = proxyTable[context]
