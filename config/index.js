@@ -33,7 +33,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://kefu.focus-dev.cn',
+        target: 'http://your.server.cn',
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/'
