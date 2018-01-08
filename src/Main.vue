@@ -20,7 +20,9 @@
           </el-breadcrumb>
         </section>
         <section class="app-container__body-content">
-          <router-view/>
+          <transition name="fade" mode="out-in">
+            <router-view/>
+          </transition>
         </section>
       </section>
       <section class="app-container__body-main" v-show="$route.path === '/'">
@@ -39,6 +41,9 @@ import NavSide from '@/NavSide.vue'
 import HomePage from '@/pages/HomePage'
 
 export default {
+  created () {
+    document.getElementById('pre-loading').style.display = 'none'
+  },
   components: {
     MainHeader,
     NavSide,
