@@ -6,7 +6,10 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  created () {
+    document.getElementById('pre-loading').style.display = 'none'
+  }
 }
 </script>
 

@@ -93,6 +93,8 @@ export default {
       &-content {
         margin-top: 20px;
         padding: 20px;
+        border: 1px solid #bbb;
+        box-shadow: 0 0 20px #bbb;
         min-height: 100%;
         background-color: #fff;
       }

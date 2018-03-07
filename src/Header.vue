@@ -62,7 +62,7 @@ export default {
     }
 
     &__profile {
-      width: 200px;
+      margin-right: 10px;
       
       span + span {
         margin-left: 10px;
