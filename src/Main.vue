@@ -2,13 +2,13 @@
   <section class="app-container">
     <!-- 头部 -->
     <header class="app-container__header">
-      <main-header></main-header>
+      <main-header :collapse.sync="collapse"></main-header>
     </header>
     <!-- 页面内容部分 -->
     <section class="app-container__body">
       <!-- 侧导航部分 -->
       <aside class="app-container__body-nav">
-        <nav-side></nav-side>
+        <nav-side :collapse="collapse"></nav-side>
       </aside>
       <!-- 内容部分 -->
       <section class="app-container__body-main" v-show="$route.path !== '/'">
@@ -39,6 +39,11 @@ import NavSide from '@/NavSide.vue'
 import HomePage from '@/pages/HomePage'
 
 export default {
+  data () {
+    return {
+      collapse: false
+    }
+  },
   components: {
     MainHeader,
     NavSide,
@@ -68,7 +73,6 @@ export default {
       width: 100%;
 
       &-nav {
-        width: 210px;
         height: 100%;
         background-color: #555;
         border-top: 1px solid #fff;
