@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-let Main = resolve => require(['@/Main.vue'], resolve)
+let Main = resolve => require(['@/components/skeleton/Main.vue'], resolve)
 let AuthList = resolve => require(['@/pages/Auth/List.vue'], resolve)
 
 Vue.use(Router)

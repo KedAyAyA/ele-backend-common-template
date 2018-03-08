@@ -1,7 +1,7 @@
 <template>
   <section class="header-item">
-    <section class="header-item__city">
-      <span>城市：</span>
+    <section class="header-item__logo">
+      <!-- <span>城市：</span>
       <el-select v-model="value" placeholder="请选择" size="small" style="width: 120px" filterable>
         <el-option
           v-for="item in citys"
@@ -9,7 +9,8 @@
           :label="item.label"
           :value="item.id">
         </el-option>
-      </el-select>
+      </el-select> -->
+      <span> LOGO </span>
     </section>
     <section class="header-item__bars" @click="handleCollapse"><i class="fa fa-bars"></i></section>
     <section class="header-item__title">
@@ -49,15 +50,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "~scss/global_vars.scss";
+
   .header-item {
-    background-color: #555;
+    background-color: $dark-background-color;
     display: flex;
     
-    &__city {
-      width: 210px;
-      font-size: 14px;
+    &__logo {
+      width: $app-nav-width;
       position: relative;
-      border-right: 1px solid #fff;
+      
+      span {
+        font-size: $app-header-common-font-size;
+        font-weight: bold;
+      }
     }
 
     &__bars {
@@ -67,7 +73,7 @@ export default {
 
     &__title {
       flex: 1;
-      font-size: 22px;
+      font-size: $app-header-common-font-size;
       font-weight: bold;
     }
 

@@ -34,8 +34,8 @@
 </template>
 
 <script>
-import MainHeader from '@/Header.vue'
-import NavSide from '@/NavSide.vue'
+import MainHeader from 'components/skeleton/Header.vue'
+import NavSide from 'components/skeleton/NavSide.vue'
 import HomePage from '@/pages/HomePage'
 
 export default {
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $app-header-height: 48px;
+  @import "~scss/global_vars.scss";
   
   .app-container {
     height: 100%;
@@ -61,7 +61,7 @@ export default {
     &__header {
       height: $app-header-height;
       line-height: $app-header-height;
-      color: #fff;
+      color: $app-header-font-color;
       border-bottom: 1px solid #fff;
       text-align: center;
     }
@@ -74,7 +74,7 @@ export default {
 
       &-nav {
         height: 100%;
-        background-color: #555;
+        background-color: $dark-background-color;
         border-top: 1px solid #fff;
         border-right: 1px solid #fff;
         float: left;
@@ -83,7 +83,7 @@ export default {
       &-main {
         height: 100%;
         padding: 20px;
-        background-color: #f9fafc;
+        background-color: $app-body-background-color;
         border-top: 1px solid #fff;
 
         /* 创建BFC */
@@ -100,7 +100,7 @@ export default {
         border: 1px solid #bbb;
         box-shadow: 0 0 20px #bbb;
         min-height: 100%;
-        background-color: #fff;
+        background-color: $app-body-content-background-color;
       }
 
       &-welcome {

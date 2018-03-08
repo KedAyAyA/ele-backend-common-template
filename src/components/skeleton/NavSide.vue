@@ -1,8 +1,8 @@
 <template>
     <el-menu
       :default-active="$route.path"
-      background-color="#555"
       text-color="#fff"
+      background-color="#555"
       active-text-color="#ffd04b"
       :router="true"
       :collapse="collapse"
@@ -45,11 +45,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "~scss/global_vars.scss";
+
   .el-menu-vertical-nav:not(.el-menu--collapse) {
-    width: 210px;
+    width: $app-nav-width;
   }
 
   .el-menu {
+    background-color: $dark-background-color;
     border-right: 0;
     text-align: left;
   }
