@@ -20,7 +20,9 @@
           </el-breadcrumb>
         </section>
         <section class="app-container__body-content">
-          <router-view/>
+          <transition name="fade" mode="out-in">
+            <router-view/>
+          </transition>
         </section>
       </section>
       <section class="app-container__body-main" v-show="$route.path === '/'">
@@ -43,6 +45,9 @@ export default {
     return {
       collapse: false
     }
+  },
+  created () {
+    document.getElementById('pre-loading').style.display = 'none'
   },
   components: {
     MainHeader,
