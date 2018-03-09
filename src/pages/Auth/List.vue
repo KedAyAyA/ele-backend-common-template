@@ -30,6 +30,10 @@
       </template>
 
       <template slot="table-list">
+        <div style="color: #5a5e66;margin-bottom: 10px;overflow: hidden;">
+          <div style="float: left">当前为第 {{ pagination.currentPage }} 页</div>
+          <div style="float: right">共有 {{pagination.total}} 条数据</div>
+        </div>
         <table-layout>
           <el-table
             :data="tableData"
@@ -96,9 +100,9 @@ export default {
 
   },
   methods: {
-    getSearchData (page) {
+    __getSearchData (page) {
       let data = Object.assign({}, this.formData, {
-        page: page || 1,
+        page: this.pagination.currentPage,
         pageSize: this.pagination.size
       })
       AuthService.GetUserList({
@@ -110,6 +114,9 @@ export default {
           this.pagination.total = res.total
         }
       })
+    },
+    __convertParam () {
+      this.formData.cityId = Number(this.formData.cityId) || ''
     },
     handleUpdateAuth (id) {
       this.$router.push(`/auth/detail/${id}`)
