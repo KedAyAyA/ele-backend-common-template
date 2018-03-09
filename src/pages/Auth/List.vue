@@ -3,8 +3,24 @@
     <content-layout>
       <template slot="search-bar">
         <el-form :inline="true" :model="formData" size="small">
-          <el-form-item label="邮箱：">
-            <el-input v-model="formData.email" placeholder=""></el-input>
+          <el-form-item label="城市：">
+            <el-select 
+              v-model="formData.cityId" 
+              placeholder="请选择" 
+              size="small" 
+              style="width: 120px" 
+              clearable
+              filterable>
+              <el-option
+                v-for="item in citys"
+                :key="item.id"
+                :label="item.label"
+                :value="item.id">
+              </el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="用户名：">
+            <el-input v-model="formData.username" placeholder=""></el-input>
           </el-form-item>
 
           <el-form-item>
@@ -23,30 +39,26 @@
             v-loading="loading"
             slot="table">
             <el-table-column
-              prop="email"
+              prop="username"
               label="用户名"
               width="200">
             </el-table-column>
             <el-table-column
               label="用户城市">
               <template slot-scope="scope">
-                <span>{{ scope.row.cityArray.join(',') }}</span>
+                <span>{{ citys[scope.row.city - 1].label }}</span>
               </template>
             </el-table-column>
             <el-table-column
-              prop="email"
-              label="用户角色"
-              width="200">
-              <template slot-scope="scope">
-                <span>{{ scope.row.roleArray.join(',') }}</span>
-              </template>
+              prop="role"
+              label="用户角色">
             </el-table-column>
 
             <el-table-column
               label="操作"
               width="120">
               <template slot-scope="scope">
-                <el-button type="text" @click="handleUpdateAuth(scope.row.id)">修改</el-button>
+                <el-button type="text" @click="handleUpdateAuth(scope.row.id)">查看</el-button>
               </template>
             </el-table-column>
 
@@ -68,11 +80,14 @@
 <script>
 import CommonMixins from 'mixins/Common.mixins'
 
+import AuthService from 'services/AuthService'
+
 export default {
   data () {
     return {
       formData: {
-        email: undefined
+        username: '',
+        cityId: ''
       },
       tableData: []
     }
@@ -82,23 +97,22 @@ export default {
   },
   methods: {
     getSearchData (page) {
-      // let data = Object.assign({}, this.formData, {
-      //   page: page || 1,
-      //   pageSize: this.pagination.size,
-      //   cityId: this.cityId
-      // })
-      // AuthService.GetAuthList({
-      //   params: {
-      //     data: data
-      //   },
-      //   fn: res => {
-      //     this.tableData = res.record
-      //     this.pagination.total = res.total
-      //   }
-      // })
+      let data = Object.assign({}, this.formData, {
+        page: page || 1,
+        pageSize: this.pagination.size
+      })
+      AuthService.GetUserList({
+        params: {
+          data: data
+        },
+        fn: res => {
+          this.tableData = res.list
+          this.pagination.total = res.total
+        }
+      })
     },
     handleUpdateAuth (id) {
-      this.$router.push(`/auth/update/${id}`)
+      this.$router.push(`/auth/detail/${id}`)
     }
   },
   mixins: [CommonMixins.tableListMixin(), CommonMixins.defaultComputedMixin()]

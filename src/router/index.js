@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 let Main = resolve => require(['@/components/skeleton/Main.vue'], resolve)
 let AuthList = resolve => require(['@/pages/Auth/List.vue'], resolve)
+let AuthDetail = resolve => require(['@/pages/Auth/Detail'], resolve)
 
 Vue.use(Router)
 
@@ -16,7 +17,7 @@ export default new Router({
       hidden: false
     },
     {
-      path: '/message',
+      path: '/auth',
       name: '权限管理',
       iconCls: 'fa fa-envelope-o',
       component: Main,
@@ -27,8 +28,10 @@ export default new Router({
           component: AuthList
         },
         {
-          path: 'add',
-          name: '添加权限'
+          path: 'detail/:id',
+          name: '添加权限',
+          component: AuthDetail,
+          hidden: true
         }
       ]
     }

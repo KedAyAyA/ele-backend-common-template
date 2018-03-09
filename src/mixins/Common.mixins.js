@@ -10,7 +10,7 @@ export default class CommonMixins {
         return {
           pagination: {
             currentPage: 1,
-            size: 20,
+            size: 5,
             total: 0
           }
         }

@@ -1,15 +1,6 @@
 <template>
   <section class="header-item">
     <section class="header-item__logo">
-      <!-- <span>城市：</span>
-      <el-select v-model="value" placeholder="请选择" size="small" style="width: 120px" filterable>
-        <el-option
-          v-for="item in citys"
-          :key="item.id"
-          :label="item.label"
-          :value="item.id">
-        </el-option>
-      </el-select> -->
       <span> LOGO </span>
     </section>
     <section class="header-item__bars" @click="handleCollapse"><i class="fa fa-bars"></i></section>
@@ -28,8 +19,7 @@ import CommonMixins from 'mixins/Common.mixins'
 export default {
   data () {
     return {
-      options: [],
-      value: ''
+      
     }
   },
   props: ['collapse'],
