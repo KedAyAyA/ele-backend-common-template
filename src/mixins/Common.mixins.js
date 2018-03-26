@@ -5,6 +5,7 @@ import { mapState } from 'vuex'
 
 export default class CommonMixins {
   static tableListMixin = () => {
+    let lastStateCache = {}
     return {
       data () {
         return {
@@ -61,15 +62,25 @@ export default class CommonMixins {
             }
           })
 
-          this.$router.push({
-            path: this.$route.path,
-            query: this.formData
-          })
+          // 如果cache与url不一致 直接改变url触发
+          for (let key in this.formData) {
+            console.log(JSON.stringify(lastStateCache))
+            if (lastStateCache[key] === undefined || lastStateCache[key].toString() !== this.formData[key].toString()) {
+              this.$router.push({
+                path: this.$route.path,
+                query: this.formData
+              })
+              return
+            }
+          }
+          this.__getSearchData()
         },
         _query (router) {
           Object.assign(this.formData, this.$options.data().formData)
           this.__initData()
           Object.assign(this.formData, router.query)
+
+          Object.assign(lastStateCache, router.query)
           
           let page = Number(router.query.currentPage) || 1
           if (this.pagination.currentPage !== page) {
